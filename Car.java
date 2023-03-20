@@ -69,7 +69,7 @@ public class Car {
     }
     
  public String screenString() {
-        return "<"+ brand + ",\n" + carID + ", " + colour + ", " + frameID + ", " + engineID+">";
+        return "<"+ brand.brandName + ",\n" + carID + ", " + colour + ", " + frameID + ", " + engineID+">";
     }
 
 }

@@ -131,12 +131,12 @@ public class CarList extends ArrayList<Car> {
         do {
             System.out.println("FrameID: ");
             frameID = sc.nextLine();
-        } while (!frameID.matches("[fF][\\d]{4}"));
+        } while (!frameID.matches("[fF][\\d]{5}"));
         //-----------
         do {
             System.out.println("engineID: ");
             engineID = sc.nextLine();
-        } while (!engineID.matches("[eE][\\d]{4}"));
+        } while (!engineID.matches("[eE][\\d]{5}"));
         //-----------
         Car car = new Car(carID, b, colour, frameID, engineID);
         this.add(car);
@@ -209,19 +209,13 @@ public class CarList extends ArrayList<Car> {
     }
 
     public void listCars() {
-////        Collection.sort(this);
-//        int i, n = this.size();
-//        for (i = 0; i < n; i++) {
-////            Car c=this.get(i);
-//            System.out.println(this.get(i).screenString());
-//        }
         this.sort((Car o1, Car o2) -> {
             if (o1.getBrand().getBrandName().compareTo(o2.getBrand().getBrandName()) > 0) {
                 return 1;
             } else if (o1.getBrand().getBrandName().compareTo(o2.getBrand().getBrandName()) < 0) {
                 return -1;
             } else {
-                return 0;
+                return o1.getCarID().compareTo(o2.getCarID());
             }
         });
         int i;
